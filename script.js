@@ -83,7 +83,7 @@ let filterInsideMap = classMates.map(element => {
 // So you cannot filter inside map(), use filter() to filter and then transform elements the way you want with map().
 
 
-console.log(classMateAge35);
+console.log("find", classMateAge35);
 console.log(classMateAge35All);
 console.log(nameOfAll35);
 console.log(filterInsideMap);
