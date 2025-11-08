@@ -174,11 +174,20 @@ class studentFeature extends collegeFeature {
     }
 }
 
-class teacherFeature extends personFeature {
+class teacherFeature extends collegeFeature {
+    constructor (branch) {
+        super (branch);
+    }
     work () {
         console.log("teacher");   
     }
 }
 
-let studentObj = new studentFeature("A branch")
-console.log(studentObj.branch);
+let student1Obj = new studentFeature("A branch")
+let student2Obj = new studentFeature("B branch")
+
+let teacher1 = new teacherFeature("C bracnh")
+
+console.log(student1Obj.branch); 
+console.log(student2Obj.branch);
+console.log(teacher1.branch);
