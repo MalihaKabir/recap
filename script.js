@@ -1,3 +1,12 @@
+// ------------>> Syntax & Behaviors of <<---------------------
+// 1. Conttrol Flow,
+// 2. Loop,
+// 3. Data Structure - Array [find(), filter(), some(), includes(), splice(), toSplice(), slice(), join(), reduce()],
+// 4. Callbacks, Promises, 
+// 5. Async Await.
+
+// ------------->>
+
 // // Comparison
 // let color = "red";
 // if (color === "red") {
@@ -123,3 +132,6 @@ console.log(reduceList);
 // reduce() can do much more — reduce() join elements in any way you want, start from wherever/however you want. 
 // reduce() also can do math, build objects, merge arrays, or even count stuff — not just join text.
 
+
+
+// --------->> CALLBACKS <<------------

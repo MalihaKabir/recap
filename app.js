@@ -1,4 +1,5 @@
-// Syntax and behaviors of: Object - Classes - Inheritance - Error Handling - 
+// Syntax and behaviors of: 
+// Object - Classes - Inheritance - - 
 
 // Object contains property and method. In short, it stores variable and behaviors.
 
@@ -175,7 +176,7 @@ class studentFeature extends collegeFeature {
 }
 
 class teacherFeature extends collegeFeature {
-    constructor (branch) {
+    constructor (branch) { // constructor is used to process info given by users.
         super (branch);
     }
     work () {
