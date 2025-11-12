@@ -1,0 +1,92 @@
+// -------->> PROMISES -- to overcome CALLBACK HELL <<---------
+
+// PROMISE CHAIN
+
+
+
+// Promise = is an Object in JS. ----------->>
+const getPromise = () => {
+    return new Promise ((resolve, reject) => {
+    console.log("Promise");
+    resolve("Success!")
+})}
+
+let promise = getPromise()
+
+promise.then((res) => console.log("Promise resolved", res))
+
+promise.catch((err) => console.log("Catch this error", err))
+
+
+// const getPromiseData = (dataID, getNextData) => {
+//     return new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data", dataID);
+//             resolve("Promise done!")
+//             if (getNextData) {
+//                 getNextData()
+//             }
+//         }, 9000);
+//     })
+// }
+
+// let finalVal = getPromiseData(23); // before and after 9 sec, check finalVal 
+// // - Promise's state will be pending before 9 sec and after 9 sec, after returning the function
+
+// // console.log(finalVal);
+
+
+// In real world, we don't create Promise. We get Promise with fulfilled or rejected result from an API and 
+// then we do something with the result 
+// If the result is fulfilled, we use "promise.then(res => {})" - tell the next step.
+// If rejected, promise.catch(err => {}) - catch the error.
+
+
+
+
+
+
+// // ----------->> CallBack Hell <<------------
+// const getData = (dataID, getNextData) => {
+//     setTimeout(() => {
+//         console.log("data", dataID)
+//         if (getNextData) { // if getNextData argument is passed
+//            getNextData() // only then getNextData will be called
+//         }
+        
+//     }, 2000);
+// }
+
+// getData(2, () => {
+//     getData(1, () => {
+//         getData(4) // getNextData isn't passed
+//     })
+// })
+
+
+
+// // EVEN WORSE Practice. COMPLEX TO READ && UNDERSTAND ---------->>
+// function sum(a, b) {
+//     console.log(a + b);
+// }
+
+// function multiply(c, d) {
+//     console.log(c*d);
+    
+// }
+
+// function callBackHell(a, b, callbackFunc, callbackFunc2) {
+//     callbackFunc(a, b);
+//     callbackFunc2(a, b);
+    
+// }
+
+// let storeSum = () => {
+//     callBackHell(2, 9, sum, () => { // you'll find sum after 3 sec
+//         setTimeout(() => {
+//             multiply(2,5)
+//         }, 2000); // you'll find multiply after 9 + 2 = after total 11 sec 
+//     })
+// }
+
+// setTimeout((storeSum), 9000);
