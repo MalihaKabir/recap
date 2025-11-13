@@ -1,45 +1,85 @@
 // -------->> PROMISES -- to overcome CALLBACK HELL <<---------
 
-// PROMISE CHAIN
-
-
-
-// Promise = is an Object in JS. ----------->>
-const getPromise = () => {
+// PROMISE CHAIN -------------------->>
+function asyncPromise1() {
     return new Promise ((resolve, reject) => {
-    console.log("Promise");
-    resolve("Success!")
-})}
+        setTimeout(() => {
+            console.log("data 01");
+            resolve("Success async 01")
+        }, 5000);
+    }) 
+}
 
-let promise = getPromise()
+function asyncPromise2() {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            console.log("data 02");
+            resolve("success async 02")
+        }, 5000);
+    })
+}
 
-promise.then((res) => console.log("Promise resolved", res))
+// let promise01 = asyncPromise1()
 
-promise.catch((err) => console.log("Catch this error", err))
-
-
-// const getPromiseData = (dataID, getNextData) => {
-//     return new Promise ((resolve, reject) => {
-//         setTimeout(() => {
-//             console.log("data", dataID);
-//             resolve("Promise done!")
-//             if (getNextData) {
-//                 getNextData()
-//             }
-//         }, 9000);
+// promise01.then(result => {
+//     console.log("get result", result);
+//     let promise02 = asyncPromise2()
+//     promise02.then(result => {
+//         console.log(result);
+        
 //     })
-// }
-
-// let finalVal = getPromiseData(23); // before and after 9 sec, check finalVal 
-// // - Promise's state will be pending before 9 sec and after 9 sec, after returning the function
-
-// // console.log(finalVal);
+// })
 
 
-// In real world, we don't create Promise. We get Promise with fulfilled or rejected result from an API and 
-// then we do something with the result 
-// If the result is fulfilled, we use "promise.then(res => {})" - tell the next step.
-// If rejected, promise.catch(err => {}) - catch the error.
+asyncPromise1().then(result => {
+    console.log("get result", result);
+    asyncPromise2().then(result => {
+        console.log(result);
+    })
+})
+
+
+
+
+
+
+
+// // Promise = is an Object in JS. ----------->>
+// const getPromise = () => {
+//     return new Promise ((resolve, reject) => {
+//     console.log("Promise");
+//     resolve("Success!")
+// })}
+
+// let promise = getPromise()
+
+// promise.then((res) => console.log("Promise resolved", res))
+
+// promise.catch((err) => console.log("Catch this error", err))
+
+
+// // const getPromiseData = (dataID, getNextData) => {
+// //     return new Promise ((resolve, reject) => {
+// //         setTimeout(() => {
+// //             console.log("data", dataID);
+// //             resolve("Promise done!")
+// //             if (getNextData) {
+// //                 getNextData()
+// //             }
+// //         }, 9000);
+// //     })
+// // }
+
+// // let finalVal = getPromiseData(23); // before and after 9 sec, check finalVal 
+// // // - Promise's state will be pending before 9 sec and after 9 sec, after returning the function
+
+// // // console.log(finalVal);
+
+
+// // In real world, we don't create Promise. We get Promise with fulfilled or rejected result from an API and 
+// // then we do something with the result 
+// // If the result is fulfilled, we use "promise.then(res => {})" - tell the next step.
+// // If rejected, promise.catch(err => {}) - catch the error.
 
 
 
