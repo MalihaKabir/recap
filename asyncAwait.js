@@ -1,5 +1,27 @@
-// -------->> PROMISES -- to overcome CALLBACK HELL <<---------
+// --------------->> ASYNC AWAIT <<----------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -------->> PROMISES -- to overcome CALLBACK HELL <<---------
 // PROMISE CHAIN -------------------->>
 function asyncPromise1() {
     return new Promise ((resolve, reject) => {
@@ -32,14 +54,22 @@ function asyncPromise2() {
 
 
 asyncPromise1().then(result => {
-    console.log("get result", result);
-    asyncPromise2().then(result => {
-        console.log(result);
+    return asyncPromise2().then(result => {
+    }).then (result => {
+        return asyncPromise1()
+    }).then(result => {
+        return asyncPromise2(result)
+    }).then(result=> {
+        console.log("get result", result);
+
     })
 })
 
 
-
+// Promise chain may look better than callback hell, 
+// but Async Await looks clearer 
+// and top programmers often use especially when you need to do one task after finishing its immediate previous task 
+// like check password only after you find that username is correct while logging in
 
 
 
