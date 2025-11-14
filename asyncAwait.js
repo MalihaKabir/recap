@@ -1,19 +1,28 @@
 // --------------->> ASYNC AWAIT <<----------------
+let asyncAwaitFunc = (dataID) => {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Async Awsait Data ", dataID);
+            resolve("success")
+        }, 3000)
+    })
+}
+
+// using IIFE = Immediately Invoked Function Expression. 
+// You don't need to call the function. It is called automatically as you have to add "()" at the end of the function.
+// But w this syntax, you can use this function only once. So use it accordingly.
+(async function () {
+    await asyncAwaitFunc(3);
+    await asyncAwaitFunc(4);
+})()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// w/o using IIFE
+async function getAsyncData() {
+    await asyncAwaitFunc(2);
+    await asyncAwaitFunc(1);
+}
+getAsyncData()
 
 
 
