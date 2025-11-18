@@ -16,4 +16,24 @@ console.log(object01 === object03); // false
 // so the result is false.
 
 
-// -------->> CONTEXT <<----------
+// -------->> CONTEXT - Concept of THIS in Object <<----------
+console.log(this); // 'this' means the window obj, the root
+console.log(this === window); // so the result is --> true
+
+const object04 = {
+    a: () => {
+        console.log(this);
+    }
+
+}
+
+console.log(object04);
+// So "this" refers to what obj it is in = what is in its left = what obj it is inside of
+
+
+
+// ---------->> Instantiation <<---------------
+// to create many many players like Harry Potter, Wizards ect.
+// You'll need blueprint or template
+// you'll use "class" and "this" will be handy.
+// to find example of it, see app.js file.
