@@ -16,7 +16,33 @@ console.log(object01 === object03); // false
 // so the result is false.
 
 
+
+// CAUTION: ----------->>
+object02.value = 12
+console.log("object01", object01); // 12
+console.log("object02", object02); // 12
+// since 'object02' refers to 'object01', if you change value from any of them, 
+// following reference type, both value will be changed to 12.
+// it is passed by reference. location is same.
+
+// try cloning instead:
+const obj01 = {value: 10}
+const obj02 = {...obj01} // cloning w Spread Operator. allocating in a different box.
+
+obj02.value = 133; 
+
+console.log("obj01", obj01); // 10
+console.log("obj02", obj02); // 133
+
+console.log("FALSE?: ", obj01 === obj02); // false
+
+
+
+
+
+
 // -------->> CONTEXT - Concept of THIS in Object <<----------
+
 console.log(this); // 'this' means the window obj, the root
 console.log(this === window); // so the result is --> true
 
@@ -32,7 +58,9 @@ console.log(object04);
 
 
 
+
 // ---------->> Instantiation <<---------------
+
 // to create many many players like Harry Potter, Wizards ect.
 // You'll need blueprint or template
 // you'll use "class" and "this" will be handy.
