@@ -17,7 +17,7 @@ console.log(object01 === object03); // false
 
 
 
-// CAUTION: ----------->>
+// CAUTION : ----------------------------->>
 object02.value = 12
 console.log("object01", object01); // 12
 console.log("object02", object02); // 12
@@ -25,16 +25,32 @@ console.log("object02", object02); // 12
 // following reference type, both value will be changed to 12.
 // it is passed by reference. location is same.
 
-// try cloning instead:
+
+// try cloning instead :
 const obj01 = {value: 10}
 const obj02 = {...obj01} // cloning w Spread Operator. allocating in a different box.
 
+
 obj02.value = 133; 
+
 
 console.log("obj01", obj01); // 10
 console.log("obj02", obj02); // 133
 
 console.log("FALSE?: ", obj01 === obj02); // false
+
+
+
+// SHALLOW CLONE & SUPER CLONE: ------------------------->>
+let objShallowCloning = {
+    a: 'a',
+    b: 'b',
+    c: {
+        deep: 'try and copy me'
+    }
+}
+
+
 
 
 
