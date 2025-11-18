@@ -1,3 +1,5 @@
+// --------->> REFERENCE TYPE <<---------
+
 const object01 = {value: 10}
 const object02 = object01
 const object03 = {value: 10}
@@ -13,3 +15,5 @@ console.log(object01 === object03); // false
 // these values are in two separate boxes(addresses).
 // so the result is false.
 
+
+// -------->> CONTEXT <<----------
