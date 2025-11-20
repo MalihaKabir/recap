@@ -8,18 +8,27 @@
 // Etiquette to talking to the waiter == Syntax to talikng to an API 
 // or fetching (sending and receiving from) an API.
 // "fetch()" is a method that returns a PROMISE.
-// Etiquette or Syntax: -------->>
-// let promise = fetch(url)
+// Etiquette or Syntax to GET your dish or a response: -------->>
+// let promise = fetch(url) --> GET req.
 // then how you eat the dish == how you write the object from the result
 
 const apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10"; // end point or the waiter.
+let img = document.getElementById("imgSRC");
 
 // since PROMISE works asynchronously, use async() and await for each action...
 const getIMG = async () => {
     console.log("getting data . . .");
     let responsefromAPI = await fetch(apiUrl);
     console.log(responsefromAPI.status);
-    // you get a response that is an object.
+    // you get a response that is an object. 
+    // Now you need to make it usable for your web page or suitable for your body to accept.
+    // chew with JSON. it returns a second promise to you.
+    let data = await responsefromAPI.json();
+    console.log(data[0]);
+    // img.setAttribute("src", data[0].url) // or
+    img.src = data[0].url
+    img.height = data[0].height;
+    img.width = data[0].width;  
 }
 
 getIMG()
