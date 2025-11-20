@@ -12,9 +12,35 @@
 // let promise = fetch(url) --> GET req.
 // then how you eat the dish == how you write the object from the result
 
+// const apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10"; // end point or the waiter.
+// let img = document.getElementById("imgSRC");
+// let btn = document.querySelector("#btn")
+
+// // since PROMISE works asynchronously, use async() and await for each action...
+// const getIMG = async () => {
+//     console.log("getting data . . .");
+//     let responsefromAPI = await fetch(apiUrl);
+//     console.log(responsefromAPI.status);
+//     // you get a response that is an object. 
+//     // Now you need to make it usable for your web page or suitable for your body to accept.
+//     // chew with JSON to make data readable. it returns a second promise to you.
+//     let data = await responsefromAPI.json();
+//     console.log(data[0]);
+//     // img.setAttribute("src", data[0].url) // or
+//     img.src = data[0].url;
+//     img.alt = "cat photo";
+//     img.height = data[0].height;
+//     img.width = data[0].width;  
+// }
+
+// btn.addEventListener("click", getIMG)
+
+
+
+// using map(): ------------------------->>
 const apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10"; // end point or the waiter.
-let img = document.getElementById("imgSRC");
 let btn = document.querySelector("#btn")
+
 
 // since PROMISE works asynchronously, use async() and await for each action...
 const getIMG = async () => {
@@ -26,11 +52,15 @@ const getIMG = async () => {
     // chew with JSON to make data readable. it returns a second promise to you.
     let data = await responsefromAPI.json();
     console.log(data[0]);
-    // img.setAttribute("src", data[0].url) // or
-    img.src = data[0].url;
-    img.alt = "cat photo";
-    img.height = data[0].height;
-    img.width = data[0].width;  
+    data.map(data => {
+        let img = document.getElementById("imgSRC");
+        // img.setAttribute("src", data[0].url) // or
+        img.src = data.url;
+        img.alt = "cat photo";
+        img.height = data.height;
+        img.width = data.width;  
+    })
+    
 }
 
 btn.addEventListener("click", getIMG)
